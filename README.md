@@ -21,3 +21,4 @@
 - Hides all white belts/boots/gloves
 - Hides all white daggers/staffs
 - Hides arrows/bolts/throwing potions
+- Hides useless low-tier set items
