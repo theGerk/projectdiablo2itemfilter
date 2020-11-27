@@ -12,9 +12,12 @@
 - Shows sockets
 - Shows eth/non eth
 - Shows crafting recipes on applicable magic armors
+- Shows all elite class items
 
 *HIDDEN*
-- Hides all normal/exceptional white/magic/rare items (besides flails, crystal swords, circlets)
+- Hides all normal/exceptional white/magic/rare items (besides flails, crystal swords, circlets, class items)
 - Hides all items with 1 or 2 sockets
 - Hides all magic elite armors except those used in crafting recipes
 - Hides all white belts/boots/gloves
+- Hides all white daggers/staffs
+- Hides arrows/bolts/throwing potions
