@@ -1,0 +1,289 @@
+// Pj's Loot Filter Version 1.0
+// For Level 80+ Endgame Characters
+// Season one "Awakening"
+// 
+
+
+//################################ SHOW ITEMS ####################################
+//################################################################################
+//################################################################################
+//################################################################################
+
+//Show me that an item is ethereal
+ItemDisplay[ETH UNI]:%GRAY%[%WHITE%eth%GRAY%] %GOLD%%NAME%%CONTINUE%
+ItemDisplay[ETH RARE]:%GRAY%[%WHITE%eth%GRAY%] %YELLOW%%NAME%%CONTINUE%
+ItemDisplay[ETH MAG]:%GRAY%[%WHITE%eth%GRAY%] %BLUE%%NAME%%CONTINUE%
+ItemDisplay[ETH NMAG]:%GRAY%[%WHITE%eth%GRAY%] %GRAY%%NAME%%CONTINUE%
+
+//Show me number of sockets of every socketed item
+ItemDisplay[SOCK>0]:%NAME% %TAN%[%WHITE%%SOCKETS%%TAN%]%CONTINUE%
+
+//Show me price of every MAG or RARE weapon/armor after ID
+ItemDisplay[(ARMOR OR WEAPON) (MAG OR RARE) ID]:%NAME% %GRAY%(%TAN%$%WHITE%%PRICE%%GRAY%)%CONTINUE%
+
+//Show me high-value saleable items
+ItemDisplay[NMAG (CHEST OR THROWING OR SOR OR DIN OR WAND OR NEC OR STAFF OR SCEPTER)]:%NAME% %GRAY%(%TAN%$%WHITE%%PRICE%%GRAY%)%CONTINUE%
+
+//Only show super potions and FULL rejuvination potions
+ItemDisplay[rvl]:%PURPLE%+%WHITE%rPot
+ItemDisplay[hp5]:%RED%+%WHITE%hPot
+ItemDisplay[mp5]:%BLUE%+%WHITE%mPot
+
+//Show me useful utility scrolls and potions
+ItemDisplay[tsc]:%BLUE%*%GRAY%tp//Town Portal Scroll
+ItemDisplay[isc]:%RED%*%GRAY%id//ID Scroll
+ItemDisplay[wms]:%GREEN%!%WHITE%thaw//Thaw potion
+ItemDisplay[yps]:%GREEN%!%WHITE%ant//Antidote potion
+
+//Show me Keys
+ItemDisplay[key]:%GRAY%key%CONTINUE%
+
+//Show Perfect/flawless Gems
+ItemDisplay[gzv OR gzvs OR gpv OR gpvs]:%NAME% %ORANGE%[%PURPLE%O%ORANGE%]%CONTINUE%//Amethyst
+ItemDisplay[glw OR glws OR gpw OR gpws]:%NAME% %ORANGE%[%WHITE%O%ORANGE%]%CONTINUE%//Diamond
+ItemDisplay[glg OR glgs OR gpg OR gpgs]:%NAME% %ORANGE%[%GREEN%O%ORANGE%]%CONTINUE%//Emerald
+ItemDisplay[glr OR glrs OR gpr OR gprs]:%NAME% %ORANGE%[%RED%O%ORANGE%]%CONTINUE%//Ruby
+ItemDisplay[glb OR glbs OR gpb OR gpbs]:%NAME% %ORANGE%[%BLUE%O%ORANGE%]%CONTINUE%//Sapphire
+ItemDisplay[gly OR glys OR gpy OR gpys]:%NAME% %ORANGE%[%YELLOW%O%ORANGE%]%CONTINUE%//Topaz
+ItemDisplay[skl OR skls OR skz OR skzs]:%NAME% %ORANGE%[%GRAY%O%ORANGE%]%CONTINUE%//Skull
+
+//Show me runes
+ItemDisplay[RUNE<18]:%ORANGE%%RUNENAME% Rune %GRAY%[%TAN%%RUNENUM%%GRAY%]
+ItemDisplay[RUNE>17 AND RUNE<20]:%ORANGE%* %RUNENAME% Rune %GRAY%[%TAN%%RUNENUM%%GRAY%] *
+ItemDisplay[RUNE>19 AND RUNE<26]:%DOT-62%%ORANGE%** %RUNENAME% Rune %GRAY%[%TAN%%RUNENUM%%GRAY%] **
+ItemDisplay[RUNE>25]:%DOT-62%%ORANGE%*** %RUNENAME% Rune %GRAY%[%TAN%%RUNENUM%%GRAY%] ***
+
+//Show me small and grand charms with ilvl
+ItemDisplay[cm1 MAG !ID]:%DOT-9B%%NAME% %GRAY%[%GREEN%ilvl %ILVL%%GRAY%]
+ItemDisplay[cm1 MAG]:%NAME% %GRAY%[%GREEN%ilvl %ILVL%%GRAY%]
+ItemDisplay[cm3 MAG]:%DOT-9B%%NAME% %GRAY%[%GREEN%ilvl %ILVL%%GRAY%]
+ItemDisplay[cm3 MAG]:%NAME% %GRAY%[%GREEN%ilvl %ILVL%%GRAY%]
+
+//Show me all unidentified rare items
+ItemDisplay[RARE !ID]:%YELLOW%** %NAME% **%CONTINUE%
+
+//Show me ilvl>84 unidentified rings and amulets 
+ItemDisplay[(amu OR rin) (MAG OR RARE) ILVL>84]:%NAME% %GRAY%[%GREEN%ilvl %ILVL%%GRAY%]
+
+//Show me all magic and rare jewels
+ItemDisplay[(MAG OR RARE) jew !ID]:%DOT-9B%%NAME%
+
+//Show me all Unique Items, but only alert me if they're exceptional or elite
+ItemDisplay[UNI !NORM !ID]:%DOT-68%%GOLD%*** %NAME% ***%CONTINUE%
+ItemDisplay[UNI NORM !ID]:%GOLD%*** %NAME% ***%CONTINUE%
+
+//Show me all Set Items, but only alert me if they're exceptional or elite
+ItemDisplay[SET !NORM !ID]:%DOT-84%%GREEN%*** %NAME% ***%CONTINUE%
+ItemDisplay[SET NORM !ID]:%GREEN%*** %NAME% ***%CONTINUE%
+
+//Show me rare Circlets and Diadems with ilvl
+ItemDisplay[EQ7 (RARE) !ID]:%DOT-A8%%NAME% %GRAY%[%GREEN%ilvl %ILVL%%GRAY%]
+ItemDisplay[EQ7 (RARE)]:%NAME% %GRAY%[%GREEN%ilvl %ILVL%%GRAY%]
+
+//Show me non-magic, non-socketed ilvl>84 Diadems (for imbue quest)
+ItemDisplay[ci3 NMAG ILVL>85 !ETH SOCK=0]:%NAME% %YELLOW%[%GRAY%imbue%YELLOW%]
+
+//Show me when items have 15%ED Superior mods
+ItemDisplay[(WEAPON OR ARMOR) NMAG SUP ED>14]:%NAME%%WHITE%[%GREEN%+15 ED%WHITE%]%CONTINUE%
+
+//Show me when claws have +3 to mind blast
+ItemDisplay[SIN (SK273>2)]:%WHITE%[%GREEN%+3 Mind Blast%WHITE%]
+
+//Show me magic items that are used in crafting recipes
+    //Hit Power
+ItemDisplay[uhl MAG]:%NAME% %WHITE%[%BLUE%Hit Power%WHITE%]{ Recipe: Helm, Ith, PSapphire, Jewel }    
+ItemDisplay[umb MAG]:%NAME% %WHITE%[%BLUE%Hit Power%WHITE%]{ Recipe: Boots, Ral, PSapphire, Jewel }
+ItemDisplay[umg MAG]:%NAME% %WHITE%[%BLUE%Hit Power%WHITE%]{ Recipe: Gloves, Ort, PSapphire, Jewel }
+ItemDisplay[utc MAG]:%NAME% %WHITE%[%BLUE%Hit Power%WHITE%]{ Recipe: Belt, Tal, PSapphire, Jewel }
+ItemDisplay[uts MAG]:%NAME% %WHITE%[%BLUE%Hit Power%WHITE%]{ Recipe: Shield, Eth, PSapphire, Jewel }
+ItemDisplay[uld MAG]:%NAME% %WHITE%[%BLUE%Hit Power%WHITE%]{ Recipe: Armor, Nef, PSapphire, Jewel }
+    //Blood
+ItemDisplay[ulm MAG]:%NAME% %WHITE%[%RED%Blood%WHITE%]{ Recipe: Helm, Ral, PRuby, Jewel }
+ItemDisplay[utb MAG]:%NAME% %WHITE%[%RED%Blood%WHITE%]{ Recipe: Boots, Eth, PRuby, Jewel }
+ItemDisplay[uvg MAG]:%NAME% %WHITE%[%RED%Blood%WHITE%]{ Recipe: Gloves Nef, PRuby, Jewel }
+ItemDisplay[umc MAG]:%NAME% %WHITE%[%RED%Blood%WHITE%]{ Recipe: Belt, Tal, PRuby, Jewel }
+ItemDisplay[upk MAG]:%NAME% %WHITE%[%RED%Blood%WHITE%]{ Recipe: Shield, Ith, PRuby Jewel }
+ItemDisplay[ult MAG]:%NAME% %WHITE%[%RED%Blood%WHITE%]{ Recipe: Armor, Thul, PRuby, Jewel }
+    //Caster
+ItemDisplay[usk MAG]:%NAME% %WHITE%[%PURPLE%Caster%WHITE%]{ Recipe: Helm, Nef, PAmethyst, Jewel }
+ItemDisplay[ulb MAG]:%NAME% %WHITE%[%PURPLE%Caster%WHITE%]{ Recipe: Boots, Thul, PAmethyst, Jewel }
+ItemDisplay[ulg MAG]:%NAME% %WHITE%[%PURPLE%Caster%WHITE%]{ Recipe: Gloves, Ort, PAmethyst, Jewel }
+ItemDisplay[uvc MAG]:%NAME% %WHITE%[%PURPLE%Caster%WHITE%]{ Recipe: Belt, Ith, PAmethyst, Jewel }
+ItemDisplay[uml MAG]:%NAME% %WHITE%[%PURPLE%Caster%WHITE%]{ Recipe: Shield, Eth, PAmethyst, Jewel }
+ItemDisplay[utp MAG]:%NAME% %WHITE%[%PURPLE%Caster%WHITE%]{ Recipe: Armor, Tal, PAmethyst, Jewel }
+    //Safety
+ItemDisplay[urn MAG]:%NAME% %WHITE%[%GREEN%Safety%WHITE%]{ Recipe: Helm, Ith, PEmerald, Jewel }
+ItemDisplay[uhb MAG]:%NAME% %WHITE%[%GREEN%Safety%WHITE%]{ Recipe: Boots, Ort, PEmerald, Jewel }
+ItemDisplay[uhg MAG]:%NAME% %WHITE%[%GREEN%Safety%WHITE%]{ Recipe: Gloves, Ral, PEmerald, Jewel }
+ItemDisplay[ulc MAG]:%NAME% %WHITE%[%GREEN%Safety%WHITE%]{ Recipe: Belt, Tal, PEmerald, Jewel }
+ItemDisplay[uit MAG]:%NAME% %WHITE%[%GREEN%Safety%WHITE%]{ Recipe: Shield, Nef, PEmerald, Jewel }
+ItemDisplay[urs MAG]:%NAME% %WHITE%[%GREEN%Safety%WHITE%]{ Recipe: Armor, Eth, Pemerald, Jewel }
+
+//Show me every identified item
+ItemDisplay[(ARMOR OR WEAPON) (MAG OR RARE OR SET OR UNI OR CRAFT) ID]:%NAME%
+
+//Show me quantity of all stackables
+ItemDisplay[!(ARMOR OR WEAPON OR tbk OR ibk) QTY>0]:%NAME% %TAN%x %WHITE%%QTY%%CONTINUE%
+
+//Show me all high-resistance paladin shields
+ItemDisplay[DIN RES>44]:%NAME% %WHITE%[%TAN%High Resistance%WHITE%]
+
+//Show me all end-Game Items
+ItemDisplay[wss]:%DOT-4A%%PURPLE%*** %NAME% ***//Worldstone Shard
+ItemDisplay[imra OR rera OR upma OR imma OR scou]:%NAME%//Map crafting reagents
+ItemDisplay[lbox]:%DOT-4A%%GOLD%*** %NAME% ***//Larzuk's Puzzlebox
+ItemDisplay[dcbl OR dcho OR dcso OR dcma]:%DOT-4A%%ORANGE%*** %NAME% ***//Dclone ingredients
+ItemDisplay[pk1 OR pk2 OR pk3]:%DOT-4A%%GOLD%*** %NAME% %GOLD%***//Uber Keys
+ItemDisplay[dhn OR bey OR mbr]:%DOT-4A%%GOLD%*** %NAME% %GOLD%***//Uber Organs
+ItemDisplay[tes OR ceh OR bet OR fed]:%DOT-4A%%ORANGE%*** %NAME% ***//Essences
+ItemDisplay[(t11 OR t12 OR t13 OR t14 OR t15 OR t16 OR t17 OR t18)]:%DOT-4A%%NAME% %GRAY%[%GREEN%ilvl %ILVL%%GRAY%]//Maps
+
+//Other Stuff (ears, tomes)
+ItemDisplay[leg OR ear OR tbk OR ibk]:%NAME%
+
+// *--------Runeword Bases---------*
+
+//Spirit
+ItemDisplay[(NMAG crs !RW !INF !ETH SOCK=4]:%NAME% %GOLD%[Spirit Base]%CONTINUE%
+
+//Heart of The Oak
+ItemDisplay[NMAG fla !RW !INF !ETH SOCK=4]:%NAME% %GOLD%[Heart of The Oak Base]%CONTINUE%
+
+//Exile/Spirit Paladin Shields
+ItemDisplay[DIN NMAG !RW !INF !ETH SOCK=4 RES>43]:%NAME% %GOLD%[Exile/Spirit Base]%CONTINUE%
+ItemDisplay[uit NMAG !RW !ETH (SOCK=0 OR SOCK=4)]:%NAME% %GOLD%[Spirit Base]%CONTINUE%
+
+//Dream
+ItemDisplay[DIN] NMAG !RW !INF !ETH SOCK=3 RES>43]:%NAME% %GOLD%[Dream Base]%CONTINUE%
+ItemDisplay[(uh9 OR urn OR xh9 OR xrn) !RW NMAG !INF !ETH SOCK=3]:%NAME% %GOLD%[Dream Base]%CONTINUE%
+
+//Fortitude
+ItemDisplay[(utp OR uar) !RW NMAG !INF (SOCK=4)]:%NAME% %GOLD%[Fortitude Base]%CONTINUE%
+
+//Call To Arms
+ItemDisplay[(fla OR crs) !RW NMAG !ETH !INF SOCK=5]:%NAME% %GOLD%[Call to Arms Base]%CONTINUE%
+
+//Insight/Infinity
+ItemDisplay[(7vo OR 7s8 OR 7pa OR 7h7 OR 7wc) !RW NMAG !INF ETH SOCK=4]:%NAME% %GOLD%[Insight/Infinity Base]%CONTINUE%
+
+//Oath/Kingslayer
+ItemDisplay[NMAG ETH !RW !INF SOCK=4 (7fb OR 7gd OR 7cr OR 7gi OR 7bt OR 7wa)]:%NAME% %GOLD%[Oath/Kingslayer Base]%CONTINUE%
+
+//Famine/Voice of Reason
+ItemDisplay[NMAG ETH !RW !INF SOCK=4 (7gm OR 7m7 OR 7wh)]:%NAME% %GOLD%[Famine/Voice of Reason Base]%CONTINUE%
+
+//Obedience/Destruction
+ItemDisplay[(NMAG ETH !RW !INF SOCK=5 (7vo OR 7s8 OR 7pa OR 7h7 OR 7wc)) OR (NMAG ETH !INF SOCK=5 (7st OR 7p7 OR 7br))]:%NAME% %GOLD%[Obedience/Destruction Base]%CONTINUE%
+
+//Doom/Grief
+ItemDisplay[NMAG !RW !INF SOCK=5 (7cr OR 7fb OR 7gd OR 7wa OR 7bt OR 7gi OR 7ga)]:%NAME% %GOLD%[Doom/Grief Base]%CONTINUE%
+
+//Breath of The Dying
+ItemDisplay[NMAG !RW !INF SOCK=6 ETH (7cr OR 7gd OR 7m7 OR 7gm OR 7wa OR 7bt OR 7gi OR 7ga)]:%NAME% %GOLD%[Breath of The Dying Base]%CONTINUE%
+
+//Faith/Ice
+ItemDisplay[NMAG !RW !INF SOCK=4 ((6l7 OR 6lw OR 6hx OR 6rx) OR (amc AND TABSK0=3))]:%NAME% %GOLD%[Faith/Ice Base]%CONTINUE%
+
+//Perfect Roll Runeword Bases
+    //armors
+ItemDisplay[NMAG !RW !ETH !SUP !INF (SOCK=0 OR SOCK>2) DEF>523 utp]:%NAME% %GOLD%[Perfect Defense]//Archon plate (non-eth)
+ItemDisplay[NMAG !RW ETH !SUP !INF (SOCK=0 OR SOCK>2) DEF>785 utp]:%NAME% %GOLD%[Perfect Defense]//Archon plate (ethereal)
+ItemDisplay[NMAG !RW !ETH SUP !INF (SOCK=0 OR SOCK>2) DEF>601 utp]:%NAME% %GOLD%[Perfect Superior]//Achon plate (Superior, non-eth)
+ItemDisplay[NMAG !RW ETH SUP !INF (SOCK=0 OR SOCK>2) DEF>863 utp]:%NAME% %GOLD%[Perfect Superior]//Archon Plate (Superior, Ethereal)
+ItemDisplay[NMAG !RW !ETH !SUP !INF (SOCK=0 OR SOCK>2) DEF>599 uar]:%NAME% %GOLD%[Perfect Defense]//Sacred Armor (non-eth)
+ItemDisplay[NMAG !RW ETH !SUP !INF (SOCK=0 OR SOCK>2) DEF>899 uar]:%NAME% %GOLD%[Perfect Defense]//Sacred Armor (ethereal)
+ItemDisplay[NMAG !RW !ETH SUP !INF (SOCK=0 OR SOCK>2) DEF>689 uar]:%NAME% %GOLD%[Perfect Superior]//Sacred Armor (Superior, non-eth)
+ItemDisplay[NMAG !RW ETH SUP !INF (SOCK=0 OR SOCK>2) DEF>989 uar]:%NAME% %GOLD%[Perfect Superior]//Sacred Armor (Superior, Ethereal)
+ItemDisplay[NMAG !RW !ETH !SUP !INF (SOCK=0 OR SOCK>2) DEF>466 uui]:%NAME% %GOLD%[Perfect Defense]//Dusk Shroud (non-eth)
+ItemDisplay[NMAG !RW ETH !SUP !INF (SOCK=0 OR SOCK>2) DEF>699 uui]:%NAME% %GOLD%[Perfect Defense]//Dusk Shroud (ethereal)
+ItemDisplay[NMAG !RW !ETH SUP !INF (SOCK=0 OR SOCK>2) DEF>536 uui]:%NAME% %GOLD%[Perfect Superior]//Dusk Shroud (Superior, non-eth)
+ItemDisplay[NMAG !RW ETH SUP !INF (SOCK=0 OR SOCK>2) DEF>769 uui]:%NAME% %GOLD%[Perfect Superior]//Dusk Shroud (Superior, Ethereal)
+
+    //shields
+ItemDisplay[NMAG !RW !ETH !SUP !INF (SOCK=0 OR SOCK=4) DEF>155 uit]:%NAME% %GOLD%[Perfect Defense]//Monarch (non-eth)
+ItemDisplay[NMAG !RW !ETH SUP !INF (SOCK=0 OR SOCK=4) DEF>233 ED>14 uit]:%NAME% %GOLD%[Perfect Superior]//Monarch (superior, non-eth)
+ItemDisplay[NMAG !RW !INF ED>14 RES>44 (SOCK=0 OR SOCK>2) ((DEF>157 AND pab) OR (DEF>163 AND pac) OR (DEF>224 AND paf))]:%NAME% %GOLD%[Perfect Superior]//Paladin Shields
+
+
+//###################### HIDE ITEMS #######################
+//#########################################################
+//#########################################################
+//#########################################################
+
+//Hide gold piles $5000 or less
+ItemDisplay[GOLD<5000]:
+
+//Hide all non-unique normal and exceptional stuff
+ItemDisplay[(NORM OR EXC) (WEAPON OR ARMOR) !fla !crs !CIRC !UNI !SET !CRAFT !leg]:
+
+//Hide all items with 1 or 2 sockets
+ItemDisplay[NMAG (SOCK=1 OR SOCK=2)]:
+
+//Hide low-end potions
+ItemDisplay[(hp1 OR hp2 OR hp3 OR hp4)]://Hide lower healing potions
+ItemDisplay[(mp1 OR mp2 OR mp3 OR mp4)]://Hide lower mana potions
+ItemDisplay[rvs]://Hide basic rejuv potions
+
+//Hide useless utility potions and thrown potions
+ItemDisplay[vps]://Hide Stamina Potion
+ItemDisplay[(opl OR opm OR ops OR gpl OR gpm OR gps)]://Hide thrown potions
+
+//Hide arrows and bolts
+ItemDisplay[cqv OR aqv]:
+
+//Hide lower Gems
+ItemDisplay[(gsv OR gsy OR gsb OR gsg OR gsr OR gsw OR sku)]://Hide regular gems
+ItemDisplay[(gfv OR gfy OR gfb OR gfg OR gfr OR gfw OR skf)]://Hide flawed gems
+ItemDisplay[(gcv OR gcy OR gcb OR gcg OR gcr OR gcw OR skc)]://Hide chipped gems
+
+//Hide unidentified magic large charms
+ItemDisplay[cm2 MAG !ID]:
+
+//Hide all ilvl<85 unidentified rings and amulets
+ItemDisplay[(amu OR rin) (MAG OR RARE) ILVL<85 !ID]:
+
+//Hide inferior stuff (excluding wirt's leg)
+ItemDisplay[(ARMOR OR WEAPON) INF !leg]:
+
+//Hide all white daggers and staves
+ItemDisplay[NMAG (DAGGER OR STAFF)]:
+
+//Hide all white boots, gloves, belts
+ItemDisplay[NMAG ELT (GLOVES OR BOOTS OR BELT)]:
+
+//Hide all but top-end non-magic items
+    //Weapons
+ItemDisplay[NMAG !RW ELT WP1 !7wa !7bt !7gi]://Axes -- Berserker Axe, Decapitator, Glorious Axe
+ItemDisplay[NMAG !RW ELT WP2 !7wh !7gm !7wh !leg]://Maces -- Thunder Maul, Ogre Maul, Legendary Mallet, Wirt's Leg
+ItemDisplay[NMAG !RW ELT WP3 !7cr !7fb !7gd]://Swords -- Phase Blade, Colossus Sword, Colossus Blade
+ItemDisplay[NMAG !RW ELT WP5 !7bk !7b8 !7gl !7ts !7gl !7ts !amf]://Throwing Weapons, Javelins -- Winged Knife, Winged Axe, Ghost Glaive, Winged Harpoon, Matriarchal Javelin
+ItemDisplay[NMAG !RW ELT WP7 !7st !7st !7p7 !amd !ame]://Spears, Zon Spears -- Ghost Spear, War Pike, Matriarchal Spear, Matriarchal Pike
+ItemDisplay[NMAG !RW ELT WP8 !7vo !7h7 !7wc]://Polearms -- Colossus Voulge, Great Poleaxe, Giant Thresher
+ItemDisplay[NMAG !RW ELT WP9 !6lw !6l7 !amc]://Bows, Zon Bows -- Hydra Bow, Crusader Bow, Grand Matron Bow
+ItemDisplay[NMAG !RW ELT WP10 !6hx !6rx]://Crossbows -- Colossus Crossbow, Demon Crossbow
+    //Armors
+ItemDisplay[NMAG !RW ELT EQ1 !DRU !BAR !CIRC !uh9 !urn]://Helms (excluding class helms and circlets) -- Bone Visage, Corona
+ItemDisplay[NMAG !RW ELT EQ2 !uui !utp !uar]://Chest Armors -- Dusk Shroud, Archon Plate, Sacred Armor
+ItemDisplay[NMAG !RW ELT EQ3 !DIN !uit !ush]://Shields (excluding paladin shields) -- Monarch, Troll Nest
+ItemDisplay[NMAG !RW ELT DIN RES<43 !pab !paf !pac]://Low Resistance Paladin Shields -- Sacred Targe, Sacred Rondache, Vortex Shield
+
+//Hide useless magic Stuff
+ItemDisplay[MAG ELT CHEST !ID !ult !utp !uld !urs]://Hide all elite magic chest armor, exclude crafting chest armors
+ItemDisplay[MAG ELT HELM !ID !DRU !BAR !ulm !usk !uhl !urn]://Hide all elite magic helms, exclude druid pelts, barbarian helms, crafting helms
+ItemDisplay[MAG ELT WEAPON !ID !SIN !SOR !WAND !SCEPTER !THROWING]://Hide all elite magic weapons, exclude claws, sorc wands, necro wands, scepters, throwing weapons
+ItemDisplay[MAG ELT SHIELD !ID !DIN !NEC !upk !uml !uts !uit]://Hide all elite magic shields, exclude paladin shields, necro shields, crafting shields
+ItemDisplay[MAG ELT BOOTS !ID !utb !ulb !umb !uhb]://Hide all elite magic boots, exclude crafting boots
+ItemDisplay[MAG ELT GLOVES !ID !uvg !ulg !umg !uhg]://Hide all elite magic gloves, exclude crafting gloves
+ItemDisplay[MAG ELT BELT !ID !umc !uvc !utc !ulc]://Hide all elite magic belts, exclude crafting belts
+
+//Hide useless set items I'm never going to care about
+ItemDisplay[SET (sbr)]://Angelic Sabre
+ItemDisplay[SET (aar)]://Milabrega's Regalia
+ItemDisplay[SET (hbl OR tow OR hbt)]://Sigon's Complete Steel
+ItemDisplay[SET (bhm OR mpi)]://Tancred's Battlegear
+ItemDisplay[SET (spl OR 2ax)]://Berserker's Arsenal
+ItemDisplay[SET (bsd OR gts OR brs)]://Isenhart's Armory
+ItemDisplay[SET (msk or chn)]://Cathan's Traps
+ItemDisplay[SET (vbl)]://Arctic Gear
+ItemDisplay[SET (bwn)]://Sander's Folly
+ItemDisplay[SET (ltp)]://Arcanna's Tricks
