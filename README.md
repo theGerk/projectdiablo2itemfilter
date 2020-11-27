@@ -1,6 +1,4 @@
-# projectdiablo2itemfilter
-my project diablo 2 item filter
-ReadMe updated 11/27/2020
+# ReadMe updated 11/27/2020
 
 *SHOWING*
 - Shows only super potions and full rejuv potions
