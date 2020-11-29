@@ -13,6 +13,8 @@
 - Shows eth/non eth
 - Shows crafting recipes on applicable magic armors
 - Shows all elite class items
+- Shows all ilvl>85 magic gloves, boots, belts
+- Shows all top-end ilvl>85 magic armor, weapons, helms
 
 *HIDDEN*
 - Hides all normal/exceptional white/magic/rare items (besides flails, crystal swords, circlets, class items)
@@ -22,3 +24,4 @@
 - Hides all white daggers/staffs
 - Hides arrows/bolts/throwing potions
 - Hides useless low-tier set items
+- Hides all ilvl<85 magic items
