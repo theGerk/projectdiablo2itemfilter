@@ -1,7 +1,7 @@
 // Pj's Loot Filter Version 1.0
 // For Level 80+ Endgame Characters
 // Season one "Awakening"
-// Last updated: 11/27/2020
+// Last updated: 11/28/2020
 
 
 //################################ SHOW ITEMS ####################################
@@ -21,8 +21,11 @@ ItemDisplay[SOCK>0]:%NAME% %TAN%[%WHITE%%SOCKETS%%TAN%]%CONTINUE%
 //Show me price of every MAG or RARE weapon/armor after ID
 ItemDisplay[(ARMOR OR WEAPON) (MAG OR RARE) ID]:%NAME% %GRAY%(%TAN%$%WHITE%%PRICE%%GRAY%)%CONTINUE%
 
-//Show me high-value saleable items
+//Show me high-value saleable white items with price
 ItemDisplay[NMAG (CHEST OR THROWING OR SOR OR DIN OR WAND OR NEC OR STAFF OR SCEPTER)]:%NAME% %GRAY%(%TAN%$%WHITE%%PRICE%%GRAY%)%CONTINUE%
+
+//Show me high-value saleable magic items
+ItemDisplay[MAG ELT !ID SIN SOR WAND SCEPTER THROWING]:%NAME%%CONTINUE%
 
 //Only show super potions and FULL rejuvination potions
 ItemDisplay[rvl]:%PURPLE%+%WHITE%rPot
@@ -62,8 +65,11 @@ ItemDisplay[cm3 MAG]:%NAME% %GRAY%[%GREEN%ilvl %ILVL%%GRAY%]
 //Show me all unidentified rare items
 ItemDisplay[RARE !ID]:%YELLOW%** %NAME% **%CONTINUE%
 
-//Show me ilvl>84 unidentified rings and amulets 
-ItemDisplay[(amu OR rin) (MAG OR RARE) ILVL>84]:%NAME% %GRAY%[%GREEN%ilvl %ILVL%%GRAY%]
+//Show me ilvl>84 unidentified rings and amulets with alerts 
+ItemDisplay[(amu OR rin) (MAG OR RARE) ILVL>84]:%NAME% %GRAY%[%GREEN%ilvl %ILVL%%GRAY%]%CONTINUE%
+
+//Show me all ilvl>84 unidentified magic elite items (no alert)
+ItemDisplay[MAG ELT !ID ILVL>84]:%NAME% %GRAY%[%GREEN%ilvl %ILVL%%GRAY%]%CONTINUE%
 
 //Show me all magic and rare jewels
 ItemDisplay[(MAG OR RARE) jew !ID]:%DOT-9B%%NAME%
@@ -88,36 +94,6 @@ ItemDisplay[(WEAPON OR ARMOR) NMAG SUP ED>14]:%NAME%%WHITE%[%GREEN%+15 ED%WHITE%
 
 //Show me when claws have +3 to mind blast
 ItemDisplay[SIN (SK273>2)]:%WHITE%[%GREEN%+3 Mind Blast%WHITE%]
-
-//Show me magic items that are used in crafting recipes
-    //Hit Power
-ItemDisplay[uhl MAG]:%NAME% %WHITE%[%BLUE%Hit Power%WHITE%]{ Recipe: Helm, Ith, PSapphire, Jewel }    
-ItemDisplay[umb MAG]:%NAME% %WHITE%[%BLUE%Hit Power%WHITE%]{ Recipe: Boots, Ral, PSapphire, Jewel }
-ItemDisplay[umg MAG]:%NAME% %WHITE%[%BLUE%Hit Power%WHITE%]{ Recipe: Gloves, Ort, PSapphire, Jewel }
-ItemDisplay[utc MAG]:%NAME% %WHITE%[%BLUE%Hit Power%WHITE%]{ Recipe: Belt, Tal, PSapphire, Jewel }
-ItemDisplay[uts MAG]:%NAME% %WHITE%[%BLUE%Hit Power%WHITE%]{ Recipe: Shield, Eth, PSapphire, Jewel }
-ItemDisplay[uld MAG]:%NAME% %WHITE%[%BLUE%Hit Power%WHITE%]{ Recipe: Armor, Nef, PSapphire, Jewel }
-    //Blood
-ItemDisplay[ulm MAG]:%NAME% %WHITE%[%RED%Blood%WHITE%]{ Recipe: Helm, Ral, PRuby, Jewel }
-ItemDisplay[utb MAG]:%NAME% %WHITE%[%RED%Blood%WHITE%]{ Recipe: Boots, Eth, PRuby, Jewel }
-ItemDisplay[uvg MAG]:%NAME% %WHITE%[%RED%Blood%WHITE%]{ Recipe: Gloves Nef, PRuby, Jewel }
-ItemDisplay[umc MAG]:%NAME% %WHITE%[%RED%Blood%WHITE%]{ Recipe: Belt, Tal, PRuby, Jewel }
-ItemDisplay[upk MAG]:%NAME% %WHITE%[%RED%Blood%WHITE%]{ Recipe: Shield, Ith, PRuby Jewel }
-ItemDisplay[ult MAG]:%NAME% %WHITE%[%RED%Blood%WHITE%]{ Recipe: Armor, Thul, PRuby, Jewel }
-    //Caster
-ItemDisplay[usk MAG]:%NAME% %WHITE%[%PURPLE%Caster%WHITE%]{ Recipe: Helm, Nef, PAmethyst, Jewel }
-ItemDisplay[ulb MAG]:%NAME% %WHITE%[%PURPLE%Caster%WHITE%]{ Recipe: Boots, Thul, PAmethyst, Jewel }
-ItemDisplay[ulg MAG]:%NAME% %WHITE%[%PURPLE%Caster%WHITE%]{ Recipe: Gloves, Ort, PAmethyst, Jewel }
-ItemDisplay[uvc MAG]:%NAME% %WHITE%[%PURPLE%Caster%WHITE%]{ Recipe: Belt, Ith, PAmethyst, Jewel }
-ItemDisplay[uml MAG]:%NAME% %WHITE%[%PURPLE%Caster%WHITE%]{ Recipe: Shield, Eth, PAmethyst, Jewel }
-ItemDisplay[utp MAG]:%NAME% %WHITE%[%PURPLE%Caster%WHITE%]{ Recipe: Armor, Tal, PAmethyst, Jewel }
-    //Safety
-ItemDisplay[urn MAG]:%NAME% %WHITE%[%GREEN%Safety%WHITE%]{ Recipe: Helm, Ith, PEmerald, Jewel }
-ItemDisplay[uhb MAG]:%NAME% %WHITE%[%GREEN%Safety%WHITE%]{ Recipe: Boots, Ort, PEmerald, Jewel }
-ItemDisplay[uhg MAG]:%NAME% %WHITE%[%GREEN%Safety%WHITE%]{ Recipe: Gloves, Ral, PEmerald, Jewel }
-ItemDisplay[ulc MAG]:%NAME% %WHITE%[%GREEN%Safety%WHITE%]{ Recipe: Belt, Tal, PEmerald, Jewel }
-ItemDisplay[uit MAG]:%NAME% %WHITE%[%GREEN%Safety%WHITE%]{ Recipe: Shield, Nef, PEmerald, Jewel }
-ItemDisplay[urs MAG]:%NAME% %WHITE%[%GREEN%Safety%WHITE%]{ Recipe: Armor, Eth, Pemerald, Jewel }
 
 //Show me every identified item
 ItemDisplay[(ARMOR OR WEAPON) (MAG OR RARE OR SET OR UNI OR CRAFT) ID]:%NAME%
@@ -242,6 +218,9 @@ ItemDisplay[cm2 MAG !ID]:
 //Hide all ilvl<85 unidentified rings and amulets
 ItemDisplay[(amu OR rin) (MAG OR RARE) ILVL<85 !ID]:
 
+//Hide all ilvl<85 unidentified elite equipment
+ItemDisplay[MAG ELT !ID ILVL<85]:
+
 //Hide inferior stuff (excluding wirt's leg)
 ItemDisplay[(ARMOR OR WEAPON) INF !leg]:
 
@@ -262,19 +241,20 @@ ItemDisplay[NMAG !RW ELT WP8 !7vo !7h7 !7wc]://Polearms -- Colossus Voulge, Grea
 ItemDisplay[NMAG !RW ELT WP9 !6lw !6l7 !amc]://Bows, Zon Bows -- Hydra Bow, Crusader Bow, Grand Matron Bow
 ItemDisplay[NMAG !RW ELT WP10 !6hx !6rx]://Crossbows -- Colossus Crossbow, Demon Crossbow
     //Armors
-ItemDisplay[NMAG !RW ELT EQ1 !DRU !BAR !CIRC !uh9 !urn]://Helms (excluding class helms and circlets) -- Bone Visage, Corona
-ItemDisplay[NMAG !RW ELT EQ2 !uui !utp !uar]://Chest Armors -- Dusk Shroud, Archon Plate, Sacred Armor
-ItemDisplay[NMAG !RW ELT EQ3 !DIN !uit !ush]://Shields (excluding paladin shields) -- Monarch, Troll Nest
+ItemDisplay[NMAG !RW ELT HELM !DRU !BAR !CIRC !uh9 !urn]://Helms (excluding class helms and circlets) -- Bone Visage, Corona
+ItemDisplay[NMAG !RW ELT CHEST !uui !utp !uar]://Chest Armors -- Dusk Shroud, Archon Plate, Sacred Armor
+ItemDisplay[NMAG !RW ELT SHIELD !DIN !uit !ush]://Shields (excluding paladin shields) -- Monarch, Troll Nest
 ItemDisplay[NMAG !RW ELT DIN RES<43 !pab !paf !pac]://Low Resistance Paladin Shields -- Sacred Targe, Sacred Rondache, Vortex Shield
 
-//Hide useless magic Stuff
-ItemDisplay[MAG ELT CHEST !ID !ult !utp !uld !urs]://Hide all elite magic chest armor, exclude crafting chest armors
-ItemDisplay[MAG ELT HELM !ID !DRU !BAR !ulm !usk !uhl !urn]://Hide all elite magic helms, exclude druid pelts, barbarian helms, crafting helms
-ItemDisplay[MAG ELT WEAPON !ID !SIN !SOR !WAND !SCEPTER !THROWING]://Hide all elite magic weapons, exclude claws, sorc wands, necro wands, scepters, throwing weapons
-ItemDisplay[MAG ELT SHIELD !ID !DIN !NEC !upk !uml !uts !uit]://Hide all elite magic shields, exclude paladin shields, necro shields, crafting shields
-ItemDisplay[MAG ELT BOOTS !ID !utb !ulb !umb !uhb]://Hide all elite magic boots, exclude crafting boots
-ItemDisplay[MAG ELT GLOVES !ID !uvg !ulg !umg !uhg]://Hide all elite magic gloves, exclude crafting gloves
-ItemDisplay[MAG ELT BELT !ID !umc !uvc !utc !ulc]://Hide all elite magic belts, exclude crafting belts
+//Hide all but top-end magic weapons
+ItemDisplay[MAG ELT WP1 !7wa !7bt !7gi]://Axes -- Berserker Axe, Decapitator, Glorious Axe
+ItemDisplay[MAG ELT WP2 !7wh !7gm !7wh !leg]://Maces -- Thunder Maul, Ogre Maul, Legendary Mallet, Wirt's Leg
+ItemDisplay[MAG ELT WP3 !7cr !7fb !7gd]://Swords -- Phase Blade, Colossus Sword, Colossus Blade
+ItemDisplay[MAG ELT WP5 !7bk !7b8 !7gl !7ts !7gl !7ts !amf]://Throwing Weapons, Javelins -- Winged Knife, Winged Axe, Ghost Glaive, Winged Harpoon, Matriarchal Javelin
+ItemDisplay[MAG ELT WP7 !7st !7st !7p7 !amd !ame]://Spears, Zon Spears -- Ghost Spear, War Pike, Matriarchal Spear, Matriarchal Pike
+ItemDisplay[MAG ELT WP8 !7vo !7h7 !7wc]://Polearms -- Colossus Voulge, Great Poleaxe, Giant Thresher
+ItemDisplay[MAG ELT WP9 !6lw !6l7 !amc]://Bows, Zon Bows -- Hydra Bow, Crusader Bow, Grand Matron Bow
+ItemDisplay[MAG ELT WP10 !6hx !6rx]://Crossbows -- Colossus Crossbow, Demon Crossbow    
 
 //Hide useless set items I'm never going to care about
 ItemDisplay[SET (sbr)]://Angelic Sabre
