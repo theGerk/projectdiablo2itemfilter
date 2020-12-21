@@ -44,6 +44,9 @@ ItemDisplay[isc]:%RED%*%GRAY%id//ID Scroll
 ItemDisplay[wms]:%GREEN%!%WHITE%thaw//Thaw potion
 ItemDisplay[yps]:%GREEN%!%WHITE%ant//Antidote potion
 
+//Modification: notifications for Gems
+ItemDisplay[GEM>3]: %PX-9B%%NAME%%CONTINUE%
+
 //Show Perfect/flawless Gems
 ItemDisplay[gzv OR gzvs OR gpv OR gpvs]:%NAME% %ORANGE%[%PURPLE%O%ORANGE%]%CONTINUE%//Amethyst
 ItemDisplay[glw OR glws OR gpw OR gpws]:%NAME% %ORANGE%[%WHITE%O%ORANGE%]%CONTINUE%//Diamond
