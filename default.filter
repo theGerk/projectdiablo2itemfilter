@@ -34,9 +34,9 @@ ItemDisplay[MAG ELT !ID SIN SOR WAND SCEPTER THROWING]:%GREEN%$ %BLUE%%NAME% %GR
 ItemDisplay[key]:%NAME%%CONTINUE%
 
 //Only show super potions and FULL rejuvination potions
-ItemDisplay[rvl]:%PURPLE%+%WHITE%rPot
-ItemDisplay[hp5]:%RED%+%WHITE%hPot
-ItemDisplay[mp5]:%BLUE%+%WHITE%mPot
+ItemDisplay[rvl]:%PURPLE%R %WHITE%Full
+ItemDisplay[hp5]:%RED%!%WHITE%Hp
+ItemDisplay[mp5]:%BLUE%!%WHITE%Mp
 
 //Show me useful utility scrolls and potions
 ItemDisplay[tsc]:%BLUE%*%GRAY%tp//Town Portal Scroll
